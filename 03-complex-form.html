@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complex form with accessibility features">
+    <title>Complex Accessible Form</title>
+    <link rel="stylesheet" href="css/03-complex-form.css">
+</head>
+<body>
+    <!-- Skip link for accessibility -->
+    <a href="#form-start" class="skip-link">Skip to form</a>
+
+    <main role="main">
+        <h1>Advanced User Registration Form</h1>
+
+        <!-- Form with comprehensive accessibility features -->
+        <form id="form-start" method="POST" novalidate>
+            <!-- Personal Information Fieldset -->
+            <fieldset>
+                <legend>Personal Information</legend>
+
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullname">
+                        Full Name
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="fullname"
+                        type="text"
+                        name="fullname"
+                        required
+                        aria-required="true"
+                        aria-describedby="fullname-hint"
+                        pattern="^[a-zA-Z\s]{2,}$"
+                    >
+                    <span id="fullname-hint" class="hint">
+                        Must contain only letters and spaces, minimum 2 characters
+                    </span>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">
+                        Email Address
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="email"
+                        type="email"
+                        name="email"
+                        required
+                        aria-required="true"
+                        aria-describedby="email-hint"
+                    >
+                    <span id="email-hint" class="hint">
+                        Enter a valid email address (e.g., user@example.com)
+                    </span>
+                </div>
+
+                <!-- Phone Number with Pattern -->
+                <div class="form-group">
+                    <label for="phone">
+                        Phone Number
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="phone"
+                        type="tel"
+                        name="phone"
+                        required
+                        aria-required="true"
+                        pattern="^\d{3}-\d{3}-\d{4}$"
+                        placeholder="123-456-7890"
+                        aria-describedby="phone-hint"
+                    >
+                    <span id="phone-hint" class="hint">
+                        Format: XXX-XXX-XXXX
+                    </span>
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input 
+                        id="dob"
+                        type="date"
+                        name="dob"
+                        aria-describedby="dob-hint"
+                    >
+                    <span id="dob-hint" class="hint">
+                        Select your date of birth
+                    </span>
+                </div>
+            </fieldset>
+
+            <!-- Address Fieldset -->
+            <fieldset>
+                <legend>Address Information</legend>
+
+                <!-- Country with Datalist -->
+                <div class="form-group">
+                    <label for="country">
+                        Country
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="country"
+                        type="text"
+                        name="country"
+                        list="countries"
+                        required
+                        aria-required="true"
+                        aria-describedby="country-hint"
+                    >
+                    <datalist id="countries">
+                        <option value="United States">
+                        <option value="Canada">
+                        <option value="Mexico">
+                        <option value="United Kingdom">
+                        <option value="Australia">
+                        <option value="Germany">
+                        <option value="France">
+                        <option value="Japan">
+                    </datalist>
+                    <span id="country-hint" class="hint">
+                        Type or select from the list
+                    </span>
+                </div>
+
+                <!-- State/Province -->
+                <div class="form-group">
+                    <label for="state">State/Province</label>
+                    <input 
+                        id="state"
+                        type="text"
+                        name="state"
+                        aria-describedby="state-hint"
+                    >
+                    <span id="state-hint" class="hint">
+                        Your state or province
+                    </span>
+                </div>
+
+                <!-- Postal Code with Pattern -->
+                <div class="form-group">
+                    <label for="postal">Postal Code</label>
+                    <input 
+                        id="postal"
+                        type="text"
+                        name="postal"
+                        pattern="^\d{5}(-\d{4})?$"
+                        placeholder="12345 or 12345-6789"
+                        aria-describedby="postal-hint"
+                    >
+                    <span id="postal-hint" class="hint">
+                        Format: 12345 or 12345-6789
+                    </span>
+                </div>
+            </fieldset>
+
+            <!-- Account Fieldset -->
+            <fieldset>
+                <legend>Account Information</legend>
+
+                <!-- Username -->
+                <div class="form-group">
+                    <label for="username">
+                        Username
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="username"
+                        type="text"
+                        name="username"
+                        required
+                        aria-required="true"
+                        pattern="^[a-zA-Z0-9_]{3,20}$"
+                        aria-describedby="username-hint"
+                    >
+                    <span id="username-hint" class="hint">
+                        3-20 characters, alphanumeric and underscore only
+                    </span>
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">
+                        Password
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="password"
+                        type="password"
+                        name="password"
+                        required
+                        aria-required="true"
+                        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                        aria-describedby="password-hint"
+                    >
+                    <span id="password-hint" class="hint">
+                        Minimum 8 characters with uppercase, lowercase, number, and special character
+                    </span>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                    <label for="confirm-password">
+                        Confirm Password
+                        <span aria-label="required">*</span>
+                    </label>
+                    <input 
+                        id="confirm-password"
+                        type="password"
+                        name="confirm-password"
+                        required
+                        aria-required="true"
+                        aria-describedby="confirm-hint"
+                    >
+                    <span id="confirm-hint" class="hint">
+                        Must match the password above
+                    </span>
+                </div>
+            </fieldset>
+
+            <!-- Preferences Fieldset -->
+            <fieldset>
+                <legend>Preferences</legend>
+
+                <!-- Newsletter Subscribe -->
+                <div class="form-group checkbox-group">
+                    <label for="newsletter">
+                        <input 
+                            id="newsletter"
+                            type="checkbox"
+                            name="newsletter"
+                            value="yes"
+                        >
+                        Subscribe to our newsletter
+                    </label>
+                    <span id="newsletter-hint" class="hint">
+                        Receive updates about new features and promotions
+                    </span>
+                </div>
+
+                <!-- Notifications -->
+                <div class="form-group checkbox-group">
+                    <fieldset>
+                        <legend>Notification Preferences</legend>
+                        
+                        <label for="notify-email">
+                            <input 
+                                id="notify-email"
+                                type="checkbox"
+                                name="notifications"
+                                value="email"
+                            >
+                            Email Notifications
+                        </label>
+
+                        <label for="notify-sms">
+                            <input 
+                                id="notify-sms"
+                                type="checkbox"
+                                name="notifications"
+                                value="sms"
+                            >
+                            SMS Notifications
+                        </label>
+
+                        <label for="notify-push">
+                            <input 
+                                id="notify-push"
+                                type="checkbox"
+                                name="notifications"
+                                value="push"
+                            >
+                            Push Notifications
+                        </label>
+                    </fieldset>
+                </div>
+
+                <!-- Account Type Radio Buttons -->
+                <div class="form-group radio-group">
+                    <fieldset>
+                        <legend>Account Type</legend>
+                        
+                        <label for="personal">
+                            <input 
+                                id="personal"
+                                type="radio"
+                                name="account-type"
+                                value="personal"
+                                checked
+                            >
+                            Personal Account
+                        </label>
+
+                        <label for="business">
+                            <input 
+                                id="business"
+                                type="radio"
+                                name="account-type"
+                                value="business"
+                            >
+                            Business Account
+                        </label>
+
+                        <label for="enterprise">
+                            <input 
+                                id="enterprise"
+                                type="radio"
+                                name="account-type"
+                                value="enterprise"
+                            >
+                            Enterprise Account
+                        </label>
+                    </fieldset>
+                </div>
+            </fieldset>
+
+            <!-- Terms and Conditions -->
+            <fieldset>
+                <legend>Terms and Conditions</legend>
+
+                <div class="form-group checkbox-group">
+                    <label for="terms">
+                        <input 
+                            id="terms"
+                            type="checkbox"
+                            name="terms"
+                            value="accepted"
+                            required
+                            aria-required="true"
+                        >
+                        I agree to the Terms and Conditions
+                    </label>
+                    <span id="terms-hint" class="hint">
+                        You must accept the terms to continue
+                    </span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label for="privacy">
+                        <input 
+                            id="privacy"
+                            type="checkbox"
+                            name="privacy"
+                            value="accepted"
+                            required
+                            aria-required="true"
+                        >
+                        I agree to the Privacy Policy
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">
+                    Create Account
+                </button>
+                <button type="reset" class="btn-secondary">
+                    Clear Form
+                </button>
+                <a href="#" class="btn-link">
+                    Already have an account? Login
+                </a>
+            </div>
+        </form>
+
+        <!-- Error/Success Message Area -->
+        <div id="form-message" role="alert" aria-live="polite" aria-atomic="true">
+            <!-- Messages will appear here -->
+        </div>
+    </main>
+</body>
+</html>

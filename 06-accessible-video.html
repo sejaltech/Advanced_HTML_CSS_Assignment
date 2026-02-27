@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible video embed with captions">
+    <title>Accessible Video Embed</title>
+    <link rel="stylesheet" href="css/06-accessible-video.css">
+</head>
+<body>
+    <main role="main">
+        <h1>Accessible Video Implementation</h1>
+
+        <!-- Video Section 1: HTML5 video with captions -->
+        <section class="video-section">
+            <h2>Video with Built-in Captions</h2>
+            <p>Using HTML5 video element with track element for captions and subtitles</p>
+            
+            <div class="video-container">
+                <video 
+                    id="main-video"
+                    width="100%" 
+                    height="auto"
+                    controls
+                    poster="https://via.placeholder.com/800x450/3498db/ffffff?text=Video+Poster"
+                    aria-label="Tutorial video about semantic HTML"
+                >
+                    <!-- Video sources -->
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    
+                    <!-- English captions -->
+                    <track 
+                        kind="captions" 
+                        src="captions-en.vtt" 
+                        srclang="en" 
+                        label="English"
+                        default
+                    >
+                    
+                    <!-- Spanish subtitles -->
+                    <track 
+                        kind="subtitles" 
+                        src="subtitles-es.vtt" 
+                        srclang="es" 
+                        label="Spanish"
+                    >
+                    
+                    <!-- French subtitles -->
+                    <track 
+                        kind="subtitles" 
+                        src="subtitles-fr.vtt" 
+                        srclang="fr" 
+                        label="French"
+                    >
+                    
+                    <!-- Descriptions for screen readers -->
+                    <track 
+                        kind="descriptions" 
+                        src="descriptions-en.vtt" 
+                        srclang="en"
+                    >
+                    
+                    <!-- Fallback for browsers that don't support HTML5 video -->
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="video.mp4">link to the video</a> instead.</p>
+                </video>
+            </div>
+
+            <div class="video-info">
+                <h3>Video Features</h3>
+                <ul>
+                    <li>Multiple audio tracks in different languages</li>
+                    <li>Captions for dialogue and important sounds</li>
+                    <li>Descriptions for visual content</li>
+                    <li>Full keyboard navigation</li>
+                    <li>Poster image for accessibility</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Video Section 2: Audio with descriptions -->
+        <section class="video-section">
+            <h2>Accessible Audio Player</h2>
+            <p>HTML5 audio element with full accessibility features</p>
+            
+            <div class="audio-container">
+                <audio 
+                    id="audio-player"
+                    controls
+                    aria-label="Sample audio podcast"
+                >
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+
+            <div class="audio-transcript">
+                <h3>Audio Transcript</h3>
+                <p>This is the complete transcript of the audio content for users who cannot listen to the audio or prefer to read along.</p>
+                <blockquote>
+                    <p>"Welcome to our podcast about web accessibility. In this episode, we'll discuss the importance of making our websites accessible to everyone..."</p>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Video Section 3: Embedded video with accessibility wrapper -->
+        <section class="video-section">
+            <h2>Embedded Video with Accessibility</h2>
+            <p>Third-party embedded videos with proper accessibility considerations</p>
+            
+            <div class="video-embed-wrapper">
+                <!-- Iframe for embedded video with accessibility attributes -->
+                <iframe 
+                    width="100%" 
+                    height="315"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    title="Sample YouTube video with accessibility"
+                    aria-label="Embedded YouTube video"
+                ></iframe>
+            </div>
+
+            <div class="video-info">
+                <h3>Embedded Video Considerations</h3>
+                <ul>
+                    <li>Always provide a descriptive title attribute</li>
+                    <li>Include aria-label for screen readers</li>
+                    <li>Ensure frameborder is 0 for clean appearance</li>
+                    <li>Allow proper permissions via allow attribute</li>
+                    <li>Make iframe responsive with aspect ratio container</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Video Section 4: Multiple video formats -->
+        <section class="video-section">
+            <h2>Video with Multiple Formats</h2>
+            <p>Providing multiple formats ensures compatibility across browsers</p>
+            
+            <div class="video-container">
+                <video 
+                    controls
+                    width="100%"
+                    height="auto"
+                    poster="https://via.placeholder.com/800x450/2ecc71/ffffff?text=Multi-Format+Video"
+                    aria-label="Tutorial showing multiple video formats"
+                >
+                    <!-- MP4 format (most compatible) -->
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    
+                    <!-- WebM format (better compression) -->
+                    <source src="https://www.w3schools.com/html/mov_bbb.webm" type="video/webm">
+                    
+                    <!-- OGG format (older browser support) -->
+                    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    
+                    <!-- Captions -->
+                    <track 
+                        kind="captions" 
+                        src="captions-en.vtt" 
+                        srclang="en" 
+                        label="English"
+                        default
+                    >
+                    
+                    <!-- Fallback message -->
+                    <p>Your browser does not support the video element. Please download the video from the link below:</p>
+                    <ul>
+                        <li><a href="video.mp4">Download MP4 version</a></li>
+                        <li><a href="video.webm">Download WebM version</a></li>
+                    </ul>
+                </video>
+            </div>
+        </section>
+
+        <!-- Video Section 5: Responsive video wrapper -->
+        <section class="video-section">
+            <h2>Responsive Video Container</h2>
+            <p>Video player that maintains aspect ratio on all devices</p>
+            
+            <div class="responsive-video-wrapper">
+                <video 
+                    controls
+                    aria-label="Responsive video example"
+                    poster="https://via.placeholder.com/800x450/e74c3c/ffffff?text=Responsive+Video"
+                >
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    <source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+                    <track 
+                        kind="captions" 
+                        src="captions-en.vtt" 
+                        srclang="en" 
+                        label="English"
+                        default
+                    >
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- Video Section 6: Media controls accessibility -->
+        <section class="video-section">
+            <h2>Media Controls Accessibility</h2>
+            <p>Understanding built-in video player controls</p>
+            
+            <div class="controls-info">
+                <h3>Default Video Controls Include:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Control</th>
+                            <th>Keyboard Shortcut</th>
+                            <th>Function</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Play/Pause</td>
+                            <td>Space or K</td>
+                            <td>Play or pause the video</td>
+                        </tr>
+                        <tr>
+                            <td>Mute/Unmute</td>
+                            <td>M</td>
+                            <td>Mute or unmute audio</td>
+                        </tr>
+                        <tr>
+                            <td>Volume Up/Down</td>
+                            <td>↑ / ↓</td>
+                            <td>Increase or decrease volume</td>
+                        </tr>
+                        <tr>
+                            <td>Seek Forward</td>
+                            <td>→ or J</td>
+                            <td>Skip forward 5 seconds</td>
+                        </tr>
+                        <tr>
+                            <td>Seek Backward</td>
+                            <td>← or L</td>
+                            <td>Skip backward 5 seconds</td>
+                        </tr>
+                        <tr>
+                            <td>Fullscreen</td>
+                            <td>F</td>
+                            <td>Toggle fullscreen mode</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="best-practices">
+            <h2>Accessible Video Best Practices</h2>
+            <div class="practices-grid">
+                <div class="practice-item">
+                    <h4>Captions & Subtitles</h4>
+                    <p>Provide captions for all dialogue and important sounds</p>
+                </div>
+                <div class="practice-item">
+                    <h4>Descriptions</h4>
+                    <p>Include audio descriptions for visual content</p>
+                </div>
+                <div class="practice-item">
+                    <h4>Transcripts</h4>
+                    <p>Provide full transcripts for videos and audio</p>
+                </div>
+                <div class="practice-item">
+                    <h4>Keyboard Control</h4>
+                    <p>Ensure all video controls are keyboard accessible</p>
+                </div>
+                <div class="practice-item">
+                    <h4>No Autoplay</h4>
+                    <p>Avoid autoplaying videos, let users control playback</p>
+                </div>
+                <div class="practice-item">
+                    <h4>Clear Labels</h4>
+                    <p>Use descriptive titles and aria-labels for videos</p>
+                </div>
+                <div class="practice-item">
+                    <h4>Multiple Formats</h4>
+                    <p>Provide videos in multiple formats for compatibility</p>
+                </div>
+                <div class="practice-item">
+                    <h4>Responsive Design</h4>
+                    <p>Videos should adapt to different screen sizes</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

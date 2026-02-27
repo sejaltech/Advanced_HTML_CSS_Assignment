@@ -1,0 +1,432 @@
+/* ========================================
+   Responsive Images - CSS
+   Mobile-first responsive design
+   ======================================== */
+
+:root {
+  --primary: #3498db;
+  --secondary: #2c3e50;
+  --accent: #e74c3c;
+  --text: #333;
+  --light-text: #666;
+  --bg: #ffffff;
+  --light-bg: #f8f9fa;
+  --border: #ddd;
+  --spacing: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background-color: var(--light-bg);
+  line-height: 1.6;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+main h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--secondary);
+}
+
+/* ========================================
+   Image Sections
+   ======================================== */
+
+.image-section {
+  background-color: var(--bg);
+  padding: 2rem var(--spacing);
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.image-section h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary);
+}
+
+.image-section p {
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+/* ========================================
+   Responsive Images
+   ======================================== */
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.responsive-img:hover {
+  transform: scale(1.02);
+}
+
+/* ========================================
+   Video Container (for responsive iframe)
+   ======================================== */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+.video-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+}
+
+.video-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+/* ========================================
+   Responsive Background Image
+   ======================================== */
+
+.bg-responsive {
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem;
+  border-radius: 6px;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Mobile background image */
+.bg-responsive {
+  background-image: url('https://via.placeholder.com/400x300/9b59b6/ffffff?text=Mobile');
+}
+
+/* Tablet background image */
+@media (min-width: 768px) {
+  .bg-responsive {
+    background-image: url('https://via.placeholder.com/800x400/16a085/ffffff?text=Tablet');
+  }
+}
+
+/* Desktop background image */
+@media (min-width: 1024px) {
+  .bg-responsive {
+    background-image: url('https://via.placeholder.com/1200x500/2980b9/ffffff?text=Desktop');
+  }
+}
+
+.bg-responsive h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.bg-responsive p {
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+/* ========================================
+   Image Information Section
+   ======================================== */
+
+.video-info,
+.audio-transcript,
+.reference-section {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.video-info h3,
+.reference-section h2 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.video-info ul,
+.reference-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.video-info li,
+.reference-section li {
+  margin-bottom: 0.75rem;
+  padding-left: 24px;
+  position: relative;
+}
+
+.video-info li:before,
+.reference-section li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ========================================
+   Responsive Iframe Wrapper
+   ======================================== */
+
+.responsive-video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.responsive-video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+/* ========================================
+   Controls Information Table
+   ======================================== */
+
+.controls-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.controls-info th,
+.controls-info td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.controls-info th {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.controls-info tr:hover {
+  background-color: var(--light-bg);
+}
+
+.controls-info td:first-child {
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+/* ========================================
+   Best Practices Grid
+   ======================================== */
+
+.best-practices {
+  margin-top: 3rem;
+}
+
+.best-practices h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--secondary);
+}
+
+.practices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.practice-item {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practice-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.practice-item h4 {
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.practice-item p {
+  color: var(--light-text);
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Responsive Design - Tablet (768px)
+   ======================================== */
+
+@media (min-width: 768px) {
+  main {
+    padding: 2rem;
+  }
+
+  .image-section {
+    padding: 2.5rem;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .controls-info table {
+    font-size: 0.95rem;
+  }
+
+  .controls-info th,
+  .controls-info td {
+    padding: 16px;
+  }
+}
+
+/* ========================================
+   Responsive Design - Desktop (1024px)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  main {
+    max-width: 1100px;
+    padding: 3rem;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .practice-item h4 {
+    font-size: 1.05rem;
+  }
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e0e0e0;
+    --light-text: #aaa;
+    --bg: #1a1a1a;
+    --light-bg: #2d2d2d;
+    --border: #444;
+  }
+
+  .image-section {
+    background-color: #1a1a1a;
+  }
+
+  .controls-info th {
+    background-color: #2980b9;
+  }
+
+  .controls-info tr:hover {
+    background-color: #2d2d2d;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .responsive-img:hover {
+    transform: none;
+  }
+
+  .practice-item:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .image-section {
+    page-break-inside: avoid;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

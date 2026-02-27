@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible navigation structure with ARIA roles">
+    <title>Accessible Navigation - ARIA Roles</title>
+    <link rel="stylesheet" href="css/02-accessible-navigation.css">
+</head>
+<body>
+    <!-- Main header with accessible navigation -->
+    <header role="banner">
+        <div class="logo-section">
+            <h1>My Website</h1>
+        </div>
+
+        <!-- Primary Navigation -->
+        <nav role="navigation" aria-label="Primary Navigation">
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul id="main-menu" class="nav-list">
+                <!-- Home Link -->
+                <li>
+                    <a href="#" role="menuitem">Home</a>
+                </li>
+
+                <!-- Services Dropdown -->
+                <li>
+                    <a href="#services" role="menuitem" aria-haspopup="true" aria-expanded="false">Services</a>
+                    <ul role="menu" aria-label="Services submenu" hidden>
+                        <li><a href="#web-design" role="menuitem">Web Design</a></li>
+                        <li><a href="#development" role="menuitem">Development</a></li>
+                        <li><a href="#consulting" role="menuitem">Consulting</a></li>
+                    </ul>
+                </li>
+
+                <!-- Products Dropdown -->
+                <li>
+                    <a href="#products" role="menuitem" aria-haspopup="true" aria-expanded="false">Products</a>
+                    <ul role="menu" aria-label="Products submenu" hidden>
+                        <li><a href="#templates" role="menuitem">Templates</a></li>
+                        <li><a href="#tools" role="menuitem">Tools</a></li>
+                        <li><a href="#resources" role="menuitem">Resources</a></li>
+                    </ul>
+                </li>
+
+                <!-- About Link -->
+                <li>
+                    <a href="#about" role="menuitem">About</a>
+                </li>
+
+                <!-- Contact Link -->
+                <li>
+                    <a href="#contact" role="menuitem">Contact</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Search functionality -->
+        <form role="search" aria-label="Site search">
+            <input type="search" placeholder="Search..." aria-label="Search the website">
+            <button type="submit" aria-label="Submit search">Search</button>
+        </form>
+    </header>
+
+    <!-- Breadcrumb navigation -->
+    <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li aria-current="page">Web Design</li>
+        </ol>
+    </nav>
+
+    <!-- Main content -->
+    <main role="main" aria-label="Main content">
+        <section>
+            <h2>Navigation with ARIA</h2>
+            <p>This navigation structure uses proper ARIA roles to ensure accessibility for screen reader users.</p>
+        </section>
+    </main>
+
+    <!-- Skip to content link (for accessibility) -->
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <!-- Accessibility features explanation -->
+    <section class="accessibility-info">
+        <h3>Accessibility Features Used:</h3>
+        <ul>
+            <li><strong>role="navigation":</strong> Identifies navigation landmarks</li>
+            <li><strong>role="menu":</strong> Identifies dropdown menus</li>
+            <li><strong>aria-label:</strong> Provides accessible names for elements</li>
+            <li><strong>aria-haspopup:</strong> Indicates when an element has a submenu</li>
+            <li><strong>aria-expanded:</strong> Shows if a menu is open or closed</li>
+            <li><strong>aria-current="page":</strong> Marks the current page in breadcrumbs</li>
+            <li><strong>aria-controls:</strong> Links toggle button to the menu it controls</li>
+        </ul>
+    </section>
+</body>
+</html>

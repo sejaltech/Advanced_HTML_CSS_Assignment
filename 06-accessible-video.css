@@ -1,0 +1,479 @@
+/* ========================================
+   Accessible Video & Audio - CSS
+   Mobile-first responsive design
+   ======================================== */
+
+:root {
+  --primary: #3498db;
+  --secondary: #2c3e50;
+  --accent: #e74c3c;
+  --success: #27ae60;
+  --text: #333;
+  --light-text: #666;
+  --bg: #ffffff;
+  --light-bg: #f8f9fa;
+  --border: #ddd;
+  --spacing: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background-color: var(--light-bg);
+  line-height: 1.6;
+}
+
+/* ========================================
+   Skip Link
+   ======================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 2000;
+  font-weight: bold;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--accent);
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+main h1 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--secondary);
+}
+
+/* ========================================
+   Video Section
+   ======================================== */
+
+.video-section {
+  background-color: var(--bg);
+  padding: 2rem var(--spacing);
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.video-section h2 {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary);
+}
+
+.video-section p {
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+/* ========================================
+   Video Container (Responsive)
+   ======================================== */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========================================
+   Audio Player
+   ======================================== */
+
+.audio-container {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid var(--primary);
+}
+
+audio {
+  width: 100%;
+  outline: 2px solid transparent;
+}
+
+audio:focus {
+  outline-color: var(--primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Embedded Video Wrapper
+   ======================================== */
+
+.video-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+}
+
+.video-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+}
+
+/* ========================================
+   Video/Audio Information
+   ======================================== */
+
+.video-info {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-left: 4px solid var(--success);
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.video-info h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.video-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.video-info li {
+  margin-bottom: 0.75rem;
+  padding-left: 24px;
+  position: relative;
+}
+
+.video-info li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* ========================================
+   Audio Transcript
+   ======================================== */
+
+.audio-transcript {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-left: 4px solid var(--primary);
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.audio-transcript h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.audio-transcript p {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.audio-transcript blockquote {
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+  margin-left: 0;
+  color: var(--light-text);
+  font-style: italic;
+}
+
+/* ========================================
+   Controls Information
+   ======================================== */
+
+.controls-info {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+.controls-info h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.controls-info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.controls-info th,
+.controls-info td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.controls-info th {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.controls-info tr:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+.controls-info td:first-child {
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+/* ========================================
+   Best Practices
+   ======================================== */
+
+.best-practices {
+  background-color: var(--bg);
+  padding: 2rem var(--spacing);
+  margin-top: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.best-practices h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--secondary);
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--primary);
+}
+
+.practices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.practice-item {
+  background-color: var(--light-bg);
+  padding: 1.5rem;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.practice-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.practice-item h4 {
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.practice-item p {
+  color: var(--light-text);
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   Responsive Design - Tablet (768px)
+   ======================================== */
+
+@media (min-width: 768px) {
+  main {
+    padding: 2rem;
+  }
+
+  .video-section {
+    padding: 2.5rem;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .controls-info table {
+    font-size: 0.95rem;
+  }
+
+  .controls-info th,
+  .controls-info td {
+    padding: 16px;
+  }
+}
+
+/* ========================================
+   Responsive Design - Desktop (1024px)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  main {
+    max-width: 1100px;
+    padding: 3rem;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .practice-item h4 {
+    font-size: 1.05rem;
+  }
+
+  .controls-info table {
+    font-size: 1rem;
+  }
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e0e0e0;
+    --light-text: #aaa;
+    --bg: #1a1a1a;
+    --light-bg: #2d2d2d;
+    --border: #444;
+  }
+
+  .video-section {
+    background-color: #1a1a1a;
+  }
+
+  .controls-info th {
+    background-color: #2980b9;
+  }
+
+  .controls-info tr:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .practice-item:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+  .video-container,
+  .video-embed-wrapper,
+  .audio-container {
+    display: none;
+  }
+
+  .video-section {
+    page-break-inside: avoid;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .controls-info table {
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================
+   Keyboard Navigation Focus Styles
+   ======================================== */
+
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ========================================
+   High Contrast Mode Support
+   ======================================== */
+
+@media (prefers-contrast: more) {
+  .video-info {
+    border-left-width: 6px;
+  }
+
+  .practice-item {
+    border-left-width: 6px;
+  }
+
+  .controls-info {
+    border-left-width: 6px;
+  }
+}

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced CSS Layouts and Effects">
+    <title>Advanced Layouts & Effects - Master Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3498db;
+            --secondary: #2c3e50;
+            --accent: #e74c3c;
+            --success: #27ae60;
+            --spacing: 1rem;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 2rem; color: var(--secondary); margin: 2rem 0 1rem; border-bottom: 3px solid var(--primary); padding-bottom: 0.5rem; }
+        h3 { color: var(--secondary); margin-top: 1.5rem; }
+
+        main { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        section { background: white; margin-bottom: 2rem; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+
+        /* ========================================
+           GRID SYSTEMS
+           ======================================== */
+
+        .grid-12 {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .col-1 { grid-column: span 1; }
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-6 { grid-column: span 6; }
+        .col-12 { grid-column: span 12; }
+
+        /* ========================================
+           MASONRY LAYOUT
+           ======================================== */
+
+        .masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            grid-auto-rows: 200px;
+        }
+
+        .masonry-item {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .masonry-item:nth-child(1),
+        .masonry-item:nth-child(4) {
+            grid-column: span 2;
+        }
+
+        .masonry-item:nth-child(2) {
+            grid-row: span 2;
+        }
+
+        /* ========================================
+           ADMIN DASHBOARD
+           ======================================== */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            min-height: 600px;
+        }
+
+        .sidebar {
+            background: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .dashboard-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .dashboard-card {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* ========================================
+           FLEX LAYOUTS
+           ======================================== */
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 4px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background: var(--light-bg);
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .flex-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .flex-item {
+            flex: 1 1 150px;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .animate-slide {
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .animate-fade-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .animate-spin {
+            animation: spin 2s linear infinite;
+        }
+
+        .animation-box {
+            width: 100px;
+            height: 100px;
+            background: var(--primary);
+            margin: 1rem auto;
+            border-radius: 4px;
+        }
+
+        /* ========================================
+           CARDS & HOVER EFFECTS
+           ======================================== */
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ========================================
+           STICKY ELEMENTS
+           ======================================== */
+
+        .sticky-demo {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            z-index: 10;
+            font-weight: bold;
+        }
+
+        .sticky-content {
+            padding: 1rem;
+        }
+
+        .sticky-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* ========================================
+           RESPONSIVE TABLES
+           ======================================== */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* ========================================
+           RESPONSIVE IMAGES
+           ======================================== */
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .col-6 { grid-column: span 12; }
+            .col-4 { grid-column: span 12; }
+            .col-3 { grid-column: span 6; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎨 Advanced CSS Layouts & Effects</h1>
+        <p>Master examples of modern CSS techniques</p>
+    </header>
+
+    <main>
+        <!-- 12-Column Grid System -->
+        <section>
+            <h2>12-Column Grid System</h2>
+            <p>Foundation for responsive layouts with 12-column base:</p>
+            <div class="grid-12">
+                <div class="grid-item col-12">Full Width (12 columns)</div>
+                <div class="grid-item col-6">Half (6 columns)</div>
+                <div class="grid-item col-6">Half (6 columns)</div>
+                <div class="grid-item col-4">Third (4 columns)</div>
+                <div class="grid-item col-4">Third (4 columns)</div>
+                <div class="grid-item col-4">Third (4 columns)</div>
+                <div class="grid-item col-3">Quarter (3 columns)</div>
+                <div class="grid-item col-3">Quarter (3 columns)</div>
+                <div class="grid-item col-3">Quarter (3 columns)</div>
+                <div class="grid-item col-3">Quarter (3 columns)</div>
+            </div>
+        </section>
+
+        <!-- Masonry Layout -->
+        <section>
+            <h2>Masonry Layout</h2>
+            <p>Dynamic grid with varying item sizes:</p>
+            <div class="masonry">
+                <div class="masonry-item">Item 1</div>
+                <div class="masonry-item">Item 2</div>
+                <div class="masonry-item">Item 3</div>
+                <div class="masonry-item">Item 4</div>
+                <div class="masonry-item">Item 5</div>
+                <div class="masonry-item">Item 6</div>
+            </div>
+        </section>
+
+        <!-- Admin Dashboard -->
+        <section>
+            <h2>Admin Dashboard Layout</h2>
+            <p>Sidebar + content grid layout:</p>
+            <div class="dashboard">
+                <div class="sidebar">
+                    <h3 style="color: white; margin-top: 0;">Menu</h3>
+                    <a href="#">Dashboard</a>
+                    <a href="#">Reports</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Users</a>
+                    <a href="#">Analytics</a>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dashboard-card">📊 Analytics</div>
+                    <div class="dashboard-card">👥 Users</div>
+                    <div class="dashboard-card">💰 Revenue</div>
+                    <div class="dashboard-card">📈 Growth</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flexbox Layouts -->
+        <section>
+            <h2>Flexbox Layouts</h2>
+            
+            <h3>Centered Content</h3>
+            <div class="flex-center">Perfectly Centered</div>
+
+            <h3>Space Between</h3>
+            <div class="flex-between">
+                <span>Left Item</span>
+                <span>Right Item</span>
+            </div>
+
+            <h3>Wrapping Items</h3>
+            <div class="flex-wrap">
+                <div class="flex-item">Item 1</div>
+                <div class="flex-item">Item 2</div>
+                <div class="flex-item">Item 3</div>
+                <div class="flex-item">Item 4</div>
+            </div>
+        </section>
+
+        <!-- Animations -->
+        <section>
+            <h2>CSS Animations</h2>
+            
+            <h3>Slide In Animation</h3>
+            <div class="animation-box animate-slide" style="background: var(--primary);"></div>
+
+            <h3>Fade Up Animation</h3>
+            <div class="animation-box animate-fade-up" style="background: var(--accent);"></div>
+
+            <h3>Pulse Effect</h3>
+            <div class="animation-box animate-pulse" style="background: var(--success);"></div>
+
+            <h3>Spin Effect</h3>
+            <div class="animation-box animate-spin" style="background: var(--primary);"></div>
+        </section>
+
+        <!-- Card Components -->
+        <section>
+            <h2>Card Components with Hover Effects</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-image">🎨</div>
+                    <div class="card-content">
+                        <div class="card-title">Design</div>
+                        <p>Beautiful and responsive designs</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">💻</div>
+                    <div class="card-content">
+                        <div class="card-title">Development</div>
+                        <p>Clean and maintainable code</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image">⚡</div>
+                    <div class="card-content">
+                        <div class="card-title">Performance</div>
+                        <p>Fast and optimized</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sticky Elements -->
+        <section>
+            <h2>Sticky Elements</h2>
+            <p>Scroll to see sticky header:</p>
+            <div class="sticky-demo">
+                <div class="sticky-header">Sticky Header</div>
+                <div class="sticky-content">
+                    <p>Section 1: Lorem ipsum dolor sit amet...</p>
+                    <p>Section 2: Consectetur adipiscing elit...</p>
+                    <p>Section 3: Sed do eiusmod tempor incididunt...</p>
+                    <p>Section 4: Ut labore et dolore magna aliqua...</p>
+                    <p>Section 5: Ut enim ad minim veniam...</p>
+                    <p>Section 6: Quis nostrud exercitation ullamco...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Table -->
+        <section>
+            <h2>Responsive Data Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Active</td>
+                        <td><a href="#">Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>Active</td>
+                        <td><a href="#">Edit</a></td>
+                    </tr>
+                    <tr>
+                        <td>Mike Johnson</td>
+                        <td>mike@example.com</td>
+                        <td>Inactive</td>
+                        <td><a href="#">Edit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Image Gallery -->
+        <section>
+            <h2>Responsive Image Gallery</h2>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Image+1" alt="Gallery image 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=Image+2" alt="Gallery image 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200/27ae60/ffffff?text=Image+3" alt="Gallery image 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x200/f39c12/ffffff?text=Image+4" alt="Gallery image 4">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Advanced CSS Layouts & Effects | Educational Purpose</p>
+        <p>All techniques are responsive and accessible</p>
+    </footer>
+</body>
+</html>

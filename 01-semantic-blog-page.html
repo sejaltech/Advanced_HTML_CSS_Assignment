@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A fully semantic blog page with advanced HTML5 structure">
+    <meta name="keywords" content="blog, semantic HTML, article, posts">
+    <meta name="author" content="Sejal Singh">
+    <title>Semantic Blog Page - Advanced HTML5</title>
+    <link rel="stylesheet" href="css/01-semantic-blog.css">
+</head>
+<body>
+    <!-- Header with semantic navigation -->
+    <header role="banner">
+        <nav role="navigation" aria-label="Main Navigation">
+            <h1>My Tech Blog</h1>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#articles">Articles</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main role="main" aria-label="Main Content">
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Hero Section">
+            <h2>Welcome to My Technology Blog</h2>
+            <p>Exploring advanced web technologies and best practices</p>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" aria-labelledby="articles-heading">
+            <h2 id="articles-heading">Latest Articles</h2>
+
+            <!-- Article 1 -->
+            <article itemscope itemtype="https://schema.org/BlogPosting">
+                <header>
+                    <h3 itemprop="headline">Understanding Semantic HTML5</h3>
+                    <time datetime="2026-02-20" itemprop="datePublished">February 20, 2026</time>
+                    <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <meta itemprop="name" content="Sejal Singh">
+                    </span>
+                </header>
+                <figure>
+                    <img src="https://via.placeholder.com/400x250" 
+                         alt="Semantic HTML structure diagram" 
+                         itemprop="image">
+                    <figcaption>Understanding semantic HTML elements</figcaption>
+                </figure>
+                <section itemprop="articleBody">
+                    <p>Semantic HTML elements are meaningful elements that clearly describe their purpose to both the browser and developer. Using semantic HTML improves accessibility, SEO, and code maintainability.</p>
+                    <p>Key semantic elements include: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code>.</p>
+                </section>
+                <footer>
+                    <p>Reading time: 5 minutes</p>
+                    <p>Category: <span itemprop="keywords">HTML, Semantics, Accessibility</span></p>
+                </footer>
+            </article>
+
+            <!-- Article 2 -->
+            <article itemscope itemtype="https://schema.org/BlogPosting">
+                <header>
+                    <h3 itemprop="headline">CSS Grid vs Flexbox: When to Use Each</h3>
+                    <time datetime="2026-02-15" itemprop="datePublished">February 15, 2026</time>
+                </header>
+                <figure>
+                    <img src="https://via.placeholder.com/400x250" 
+                         alt="CSS Grid and Flexbox comparison" 
+                         itemprop="image">
+                    <figcaption>Grid and Flexbox layout systems</figcaption>
+                </figure>
+                <section itemprop="articleBody">
+                    <p>Flexbox is ideal for one-dimensional layouts (rows or columns), while CSS Grid excels at two-dimensional layouts. Understanding when to use each is crucial for modern web design.</p>
+                </section>
+            </article>
+        </section>
+
+        <!-- Sidebar with related content -->
+        <aside role="complementary" aria-label="Sidebar">
+            <h3>Featured Posts</h3>
+            <ul>
+                <li><a href="#">Advanced CSS Techniques</a></li>
+                <li><a href="#">Accessibility Best Practices</a></li>
+                <li><a href="#">Performance Optimization</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Footer with semantic structure -->
+    <footer role="contentinfo">
+        <nav aria-label="Footer Navigation">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2026 Tech Blog. All rights reserved.</p>
+    </footer>
+</body>
+</html>

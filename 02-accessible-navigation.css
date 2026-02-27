@@ -1,0 +1,458 @@
+/* ========================================
+   Accessible Navigation - CSS
+   Mobile-first responsive design
+   ======================================== */
+
+:root {
+  --primary: #3498db;
+  --secondary: #2c3e50;
+  --accent: #e74c3c;
+  --text: #333;
+  --light-text: #666;
+  --bg: #ffffff;
+  --light-bg: #f8f9fa;
+  --border: #ddd;
+  --spacing: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+}
+
+/* ========================================
+   Header & Logo
+   ======================================== */
+
+header {
+  background-color: var(--secondary);
+  color: white;
+  padding: var(--spacing);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  flex: 1 1 100%;
+  margin-bottom: var(--spacing);
+}
+
+/* ========================================
+   Menu Toggle Button (Mobile)
+   ======================================== */
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus {
+  background-color: rgba(255,255,255,0.1);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Menu toggle animation */
+.menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* ========================================
+   Navigation List
+   ======================================== */
+
+.nav-list {
+  list-style: none;
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 1 100%;
+}
+
+.nav-list[aria-hidden="false"] {
+  display: flex;
+}
+
+.nav-list li {
+  position: relative;
+}
+
+.nav-list a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  padding: 12px 16px;
+  transition: background-color 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background-color: rgba(255,255,255,0.1);
+  border-left-color: var(--primary);
+  outline: 2px solid var(--primary);
+}
+
+/* ========================================
+   Submenu Styles
+   ======================================== */
+
+.nav-list ul[role="menu"] {
+  list-style: none;
+  background-color: rgba(0,0,0,0.1);
+  display: none;
+  flex-direction: column;
+}
+
+.nav-list ul[role="menu"][aria-hidden="false"] {
+  display: flex;
+}
+
+.nav-list ul[role="menu"] a {
+  padding-left: 32px;
+  border-left: 4px solid transparent;
+}
+
+.nav-list ul[role="menu"] a:hover,
+.nav-list ul[role="menu"] a:focus {
+  border-left-color: var(--accent);
+}
+
+/* ========================================
+   Search Form
+   ======================================== */
+
+form[role="search"] {
+  display: none;
+  width: 100%;
+  margin-top: var(--spacing);
+}
+
+form[role="search"] input,
+form[role="search"] button {
+  padding: 10px 12px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+form[role="search"] input {
+  flex: 1;
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+  width: 100%;
+}
+
+form[role="search"] input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+form[role="search"] button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.3s ease;
+}
+
+form[role="search"] button:hover,
+form[role="search"] button:focus {
+  background-color: #2980b9;
+  outline: 2px solid white;
+}
+
+/* ========================================
+   Breadcrumb Navigation
+   ======================================== */
+
+nav[aria-label="Breadcrumb"] {
+  background-color: var(--light-bg);
+  padding: 12px var(--spacing);
+  border-bottom: 1px solid var(--border);
+}
+
+.breadcrumb {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: "→";
+  margin: 0 8px;
+  color: var(--light-text);
+}
+
+.breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:focus {
+  background-color: var(--light-bg);
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.breadcrumb li[aria-current="page"] {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ========================================
+   Main Content
+   ======================================== */
+
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 var(--spacing);
+}
+
+main section {
+  margin-bottom: 2rem;
+}
+
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+main p {
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   Skip Link (Accessibility)
+   ======================================== */
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 2000;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--accent);
+}
+
+/* ========================================
+   Accessibility Info Section
+   ======================================== */
+
+.accessibility-info {
+  background-color: #e8f4f8;
+  border-left: 4px solid var(--primary);
+  padding: var(--spacing);
+  border-radius: 4px;
+  margin-top: 2rem;
+}
+
+.accessibility-info h3 {
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.accessibility-info ul {
+  list-style: none;
+  padding-left: var(--spacing);
+}
+
+.accessibility-info li {
+  margin-bottom: 0.5rem;
+  padding-left: 24px;
+  position: relative;
+}
+
+.accessibility-info li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ========================================
+   Responsive Design - Tablet (768px)
+   ======================================== */
+
+@media (min-width: 768px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  header h1 {
+    flex: 0 1 auto;
+    margin-bottom: 0;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    flex: 1 1 auto;
+    margin-left: var(--spacing);
+  }
+
+  .nav-list li {
+    position: relative;
+  }
+
+  .nav-list a {
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    padding: 8px 12px;
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus {
+    border-left: none;
+    border-bottom-color: var(--primary);
+  }
+
+  .nav-list li:hover > ul[role="menu"],
+  .nav-list li:focus-within > ul[role="menu"] {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: column;
+    background-color: var(--secondary);
+    min-width: 200px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .nav-list ul[role="menu"] a {
+    padding: 12px 16px;
+    border-left: 4px solid transparent;
+    border-bottom: none;
+  }
+
+  form[role="search"] {
+    display: flex;
+    width: auto;
+    margin-top: 0;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  form[role="search"] input {
+    width: 200px;
+  }
+
+  form[role="search"] button {
+    margin-top: 0;
+  }
+}
+
+/* ========================================
+   Responsive Design - Desktop (1024px)
+   ======================================== */
+
+@media (min-width: 1024px) {
+  form[role="search"] input {
+    width: 250px;
+  }
+
+  .breadcrumb {
+    max-width: 1200px;
+  }
+}
+
+/* ========================================
+   Dark Mode
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e0e0e0;
+    --light-text: #aaa;
+    --bg: #1a1a1a;
+    --light-bg: #2d2d2d;
+    --border: #444;
+  }
+
+  .accessibility-info {
+    background-color: #1a3a4d;
+  }
+}
+
+/* ========================================
+   Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

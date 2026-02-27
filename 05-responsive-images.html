@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive images using picture, srcset, and sizes">
+    <title>Responsive Images - Picture and Srcset</title>
+    <link rel="stylesheet" href="css/05-responsive-images.css">
+</head>
+<body>
+    <main role="main">
+        <h1>Responsive Images Implementation</h1>
+
+        <!-- Section 1: Using img with srcset -->
+        <section class="image-section">
+            <h2>Method 1: img with srcset attribute</h2>
+            <p>The srcset attribute allows the browser to select the best image based on device pixel ratio and viewport size.</p>
+            
+            <img 
+                src="https://via.placeholder.com/400x300/3498db/ffffff?text=Mobile+Image"
+                srcset="
+                    https://via.placeholder.com/400x300/3498db/ffffff?text=Mobile+Image 400w,
+                    https://via.placeholder.com/800x600/3498db/ffffff?text=Tablet+Image 800w,
+                    https://via.placeholder.com/1200x900/3498db/ffffff?text=Desktop+Image 1200w,
+                    https://via.placeholder.com/1600x1200/3498db/ffffff?text=Large+Desktop 1600w
+                "
+                sizes="
+                    (max-width: 480px) 100vw,
+                    (max-width: 768px) 90vw,
+                    (max-width: 1024px) 80vw,
+                    1000px
+                "
+                alt="Responsive image example showing different resolutions based on device"
+                class="responsive-img"
+            >
+        </section>
+
+        <!-- Section 2: Using picture element with media queries -->
+        <section class="image-section">
+            <h2>Method 2: picture element with media queries</h2>
+            <p>The picture element provides more control by allowing you to specify different images for different conditions.</p>
+            
+            <picture>
+                <!-- Large desktop screens -->
+                <source 
+                    media="(min-width: 1024px)"
+                    srcset="https://via.placeholder.com/1200x500/2ecc71/ffffff?text=Large+Desktop"
+                    type="image/png"
+                >
+                
+                <!-- Tablet screens -->
+                <source 
+                    media="(min-width: 768px)"
+                    srcset="https://via.placeholder.com/800x400/e74c3c/ffffff?text=Tablet"
+                    type="image/png"
+                >
+                
+                <!-- Mobile screens -->
+                <source 
+                    media="(max-width: 767px)"
+                    srcset="https://via.placeholder.com/400x300/9b59b6/ffffff?text=Mobile"
+                    type="image/png"
+                >
+                
+                <!-- Fallback image -->
+                <img 
+                    src="https://via.placeholder.com/800x400/3498db/ffffff?text=Default"
+                    alt="Picture element example - shows different images for different screen sizes"
+                    class="responsive-img"
+                >
+            </picture>
+        </section>
+
+        <!-- Section 3: High DPI images using picture -->
+        <section class="image-section">
+            <h2>Method 3: High DPI Support with picture</h2>
+            <p>Provide different image densities for different device pixel ratios.</p>
+            
+            <picture>
+                <!-- 1x density for standard screens -->
+                <source 
+                    srcset="https://via.placeholder.com/400x300/f39c12/ffffff?text=Standard+DPI"
+                    media="(display-mode: standalone)"
+                >
+                
+                <!-- 2x density for retina displays -->
+                <source 
+                    srcset="https://via.placeholder.com/800x600/f39c12/ffffff?text=Retina+Display 2x"
+                    media="(display-mode: standalone)"
+                >
+                
+                <!-- Fallback -->
+                <img 
+                    src="https://via.placeholder.com/400x300/f39c12/ffffff?text=High+DPI+Image"
+                    alt="High DPI image for retina and standard displays"
+                    class="responsive-img"
+                >
+            </picture>
+        </section>
+
+        <!-- Section 4: Picture with multiple srcsets -->
+        <section class="image-section">
+            <h2>Method 4: picture with responsive srcsets</h2>
+            <p>Combine picture element with srcset for maximum flexibility.</p>
+            
+            <picture>
+                <!-- Desktop images with density descriptors -->
+                <source 
+                    media="(min-width: 1024px)"
+                    srcset="
+                        https://via.placeholder.com/1200x600/1abc9c/ffffff?text=Desktop+1x 1x,
+                        https://via.placeholder.com/2400x1200/1abc9c/ffffff?text=Desktop+2x 2x
+                    "
+                >
+                
+                <!-- Tablet images with density descriptors -->
+                <source 
+                    media="(min-width: 768px)"
+                    srcset="
+                        https://via.placeholder.com/800x400/16a085/ffffff?text=Tablet+1x 1x,
+                        https://via.placeholder.com/1600x800/16a085/ffffff?text=Tablet+2x 2x
+                    "
+                >
+                
+                <!-- Mobile images with width descriptors -->
+                <source 
+                    media="(max-width: 767px)"
+                    srcset="
+                        https://via.placeholder.com/400x300/c0392b/ffffff?text=Mobile+Small 400w,
+                        https://via.placeholder.com/600x450/c0392b/ffffff?text=Mobile+Medium 600w,
+                        https://via.placeholder.com/800x600/c0392b/ffffff?text=Mobile+Large 800w
+                    "
+                >
+                
+                <!-- Fallback -->
+                <img 
+                    src="https://via.placeholder.com/800x400/3498db/ffffff?text=Fallback"
+                    alt="Complex responsive image with picture element and multiple srcsets"
+                    class="responsive-img"
+                >
+            </picture>
+        </section>
+
+        <!-- Section 5: Art Direction -->
+        <section class="image-section">
+            <h2>Method 5: Art Direction with picture</h2>
+            <p>Show different crops or compositions for different viewports (art direction).</p>
+            
+            <picture>
+                <!-- Portrait crop for mobile -->
+                <source 
+                    media="(max-width: 480px)"
+                    srcset="https://via.placeholder.com/300x600/e67e22/ffffff?text=Mobile+Portrait"
+                    type="image/png"
+                >
+                
+                <!-- Square crop for tablets -->
+                <source 
+                    media="(max-width: 1024px)"
+                    srcset="https://via.placeholder.com/600x600/d35400/ffffff?text=Tablet+Square"
+                    type="image/png"
+                >
+                
+                <!-- Landscape for desktop -->
+                <source 
+                    media="(min-width: 1025px)"
+                    srcset="https://via.placeholder.com/1000x500/e74c3c/ffffff?text=Desktop+Landscape"
+                    type="image/png"
+                >
+                
+                <!-- Fallback -->
+                <img 
+                    src="https://via.placeholder.com/600x400/34495e/ffffff?text=Art+Direction"
+                    alt="Art direction example showing different crops for different devices"
+                    class="responsive-img"
+                >
+            </picture>
+        </section>
+
+        <!-- Section 6: Format selection (WebP support) -->
+        <section class="image-section">
+            <h2>Method 6: Format Selection with WebP</h2>
+            <p>Serve modern formats (WebP) to browsers that support them, with PNG fallback.</p>
+            
+            <picture>
+                <!-- WebP format for modern browsers -->
+                <source 
+                    srcset="
+                        https://via.placeholder.com/800x600/8e44ad/ffffff?text=WebP+Format 1x,
+                        https://via.placeholder.com/1600x1200/8e44ad/ffffff?text=WebP+2x 2x
+                    "
+                    type="image/webp"
+                >
+                
+                <!-- PNG fallback for older browsers -->
+                <source 
+                    srcset="
+                        https://via.placeholder.com/800x600/9b59b6/ffffff?text=PNG+Format 1x,
+                        https://via.placeholder.com/1600x1200/9b59b6/ffffff?text=PNG+2x 2x
+                    "
+                    type="image/png"
+                >
+                
+                <!-- Final fallback -->
+                <img 
+                    src="https://via.placeholder.com/800x600/9b59b6/ffffff?text=PNG+Fallback"
+                    alt="Format selection example with WebP and PNG fallback"
+                    class="responsive-img"
+                >
+            </picture>
+        </section>
+
+        <!-- Section 7: Background images with responsive approach -->
+        <section class="image-section">
+            <h2>Background Image Responsive Approach</h2>
+            <p>Using CSS media queries for responsive background images.</p>
+            
+            <div class="bg-responsive" role="img" aria-label="Responsive background image example">
+                <h3>Responsive Background Image</h3>
+                <p>This div uses CSS media queries to serve different background images.</p>
+            </div>
+        </section>
+
+        <!-- Reference and Best Practices -->
+        <section class="reference-section">
+            <h2>Responsive Images Best Practices</h2>
+            <ul>
+                <li><strong>Always provide alt text</strong> for accessibility</li>
+                <li><strong>Use picture element</strong> for art direction and format control</li>
+                <li><strong>Use srcset with sizes</strong> for resolution switching</li>
+                <li><strong>Optimize image file sizes</strong> for better performance</li>
+                <li><strong>Consider WebP format</strong> for modern browsers</li>
+                <li><strong>Test on real devices</strong> to ensure proper loading</li>
+                <li><strong>Use lazy loading</strong> for images below the fold</li>
+                <li><strong>Provide appropriate sizes hint</strong> for better browser selection</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

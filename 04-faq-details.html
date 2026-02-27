@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ layout using HTML5 details and summary elements">
+    <title>FAQ - Details and Summary Elements</title>
+    <link rel="stylesheet" href="css/04-faq-details.css">
+</head>
+<body>
+    <main role="main">
+        <header class="faq-header">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our services</p>
+        </header>
+
+        <!-- FAQ Section with details/summary -->
+        <section class="faq-container" aria-labelledby="faq-heading">
+            <h2 id="faq-heading">General Questions</h2>
+
+            <!-- FAQ Item 1 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What is semantic HTML?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>Semantic HTML refers to using HTML markup to reinforce the meaning of the content, rather than merely to define its appearance. Semantic elements clearly describe their meaning to both the browser and the developer.</p>
+                    <p>Examples include: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;aside&gt;</code>, and <code>&lt;footer&gt;</code>.</p>
+                </div>
+            </details>
+
+            <!-- FAQ Item 2 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What is the difference between padding and margin?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p><strong>Margin:</strong> The space outside an element's border, used to push elements apart.</p>
+                    <p><strong>Padding:</strong> The space inside an element's border, between the border and the content.</p>
+                    <p>Both are part of the CSS Box Model. Margins collapse between block-level elements, while padding does not.</p>
+                </div>
+            </details>
+
+            <!-- FAQ Item 3 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">How do I make my website accessible?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>Key accessibility practices include:</p>
+                    <ul>
+                        <li>Using semantic HTML elements</li>
+                        <li>Providing alternative text for images</li>
+                        <li>Ensuring proper color contrast</li>
+                        <li>Using ARIA labels where needed</li>
+                        <li>Making keyboard navigation possible</li>
+                        <li>Providing captions for videos</li>
+                        <li>Testing with screen readers</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- FAQ Item 4 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What are CSS custom properties (variables)?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>CSS custom properties (CSS variables) are custom identifiers that store reusable values. They are declared using two hyphens (--) and referenced with the var() function.</p>
+                    <pre><code>:root {
+  --primary-color: #3498db;
+  --font-size: 16px;
+}
+
+body {
+  color: var(--primary-color);
+  font-size: var(--font-size);
+}</code></pre>
+                </div>
+            </details>
+
+            <!-- FAQ Item 5 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What is CSS Grid?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>CSS Grid is a powerful layout system that allows you to create two-dimensional layouts with rows and columns. It provides fine-grained control over item placement and alignment.</p>
+                    <p>Unlike Flexbox (which is one-dimensional), Grid is designed for complex layouts with both rows and columns.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Additional FAQ Section -->
+        <section class="faq-container" aria-labelledby="technical-heading">
+            <h2 id="technical-heading">Technical Questions</h2>
+
+            <!-- Technical FAQ Item 1 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What is the difference between block and inline elements?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p><strong>Block Elements:</strong> Take up the full width available and start on a new line. Examples: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>.</p>
+                    <p><strong>Inline Elements:</strong> Only take up as much space as needed and flow within text. Examples: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>.</p>
+                    <p><strong>Inline-block:</strong> Combines properties of both block and inline elements.</p>
+                </div>
+            </details>
+
+            <!-- Technical FAQ Item 2 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What is CSS specificity?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>CSS specificity determines which style rules apply when multiple rules target the same element. It's calculated as:</p>
+                    <ul>
+                        <li>Inline styles: 1000</li>
+                        <li>ID selectors: 100</li>
+                        <li>Class, attribute, and pseudo-class selectors: 10</li>
+                        <li>Element and pseudo-element selectors: 1</li>
+                    </ul>
+                    <p>Higher specificity values override lower ones.</p>
+                </div>
+            </details>
+
+            <!-- Technical FAQ Item 3 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What are media queries?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>Media queries allow you to apply CSS styles based on device characteristics, such as viewport width, height, and orientation. They are the foundation of responsive design.</p>
+                    <pre><code>@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}</code></pre>
+                </div>
+            </details>
+
+            <!-- Technical FAQ Item 4 -->
+            <details class="faq-item">
+                <summary role="button" aria-expanded="false">
+                    <span class="summary-text">What is the CSS Box Model?</span>
+                    <span class="toggle-icon">+</span>
+                </summary>
+                <div class="details-content">
+                    <p>The CSS Box Model describes the rectangular boxes generated for elements in the document tree. From inside out, it consists of:</p>
+                    <ol>
+                        <li><strong>Content:</strong> The actual content of the box</li>
+                        <li><strong>Padding:</strong> Transparent area around the content</li>
+                        <li><strong>Border:</strong> Border surrounding the padding</li>
+                        <li><strong>Margin:</strong> Transparent area outside the border</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+        <!-- Button to expand/collapse all -->
+        <div class="faq-actions">
+            <button id="expand-all" class="btn-expand" aria-label="Expand all FAQ items">
+                Expand All
+            </button>
+            <button id="collapse-all" class="btn-collapse" aria-label="Collapse all FAQ items">
+                Collapse All
+            </button>
+        </div>
+    </main>
+
+    <script>
+        // Add expand/collapse functionality
+        document.getElementById('expand-all').addEventListener('click', function() {
+            document.querySelectorAll('details').forEach(detail => {
+                detail.open = true;
+                detail.querySelector('summary').setAttribute('aria-expanded', 'true');
+            });
+        });
+
+        document.getElementById('collapse-all').addEventListener('click', function() {
+            document.querySelectorAll('details').forEach(detail => {
+                detail.open = false;
+                detail.querySelector('summary').setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Update aria-expanded when details is toggled
+        document.querySelectorAll('details').forEach(detail => {
+            detail.addEventListener('toggle', function() {
+                this.querySelector('summary').setAttribute('aria-expanded', this.open);
+            });
+        });
+    </script>
+</body>
+</html>
