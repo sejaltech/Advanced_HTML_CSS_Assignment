@@ -501,19 +501,10 @@ The "TechFlow" landing page demonstrates:
 
 ---
 
-## 📞 Author
+## Author
 
-**Sejal Singh**  
-Advanced Frontend Development Course  
-February 27, 2026
+**Sejal Singh**    
 
----
-
-## 📄 License
-
-This project is created for educational purposes as part of the Advanced Frontend Development course.
 
 ---
 
-**Last Updated:** 27th February 2026  
-**Status:** ✅ Complete & Ready for Submission
